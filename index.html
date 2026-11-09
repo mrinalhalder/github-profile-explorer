@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+      <meta
+         name="description"
+         content="Explore GitHub profiles and repositories."
+      />
+
+      <title>GitHub Profile Explorer</title>
+
+      <link rel="stylesheet" href="./css/reset.css" />
+      <link rel="stylesheet" href="./css/style.css" />
+      <link rel="stylesheet" href="./css/components.css" />
+
+      <script type="module" src="./js/main.js"></script>
+   </head>
+
+   <body>
+      <header class="header">
+         <div class="container header-content">
+            <a href="#" class="logo">
+               <span class="logo-icon">⌘</span>
+               <span>Git<span class="accent">Explorer</span></span>
+            </a>
+
+            <a
+               href="https://github.com"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="github-link"
+            >
+               GitHub <span>↗</span>
+            </a>
+         </div>
+      </header>
+
+      <main class="container">
+         <!-- Hero Section -->
+         <section class="hero">
+            <span class="eyebrow">DEVELOPER DISCOVERY TOOL</span>
+
+            <h1>
+               Explore GitHub<br />
+               <span class="accent">Profiles.</span>
+            </h1>
+
+            <p class="hero-description">
+               Discover developers, explore their repositories and learn about
+               their coding journey.
+            </p>
+
+            <!-- Search Form -->
+            <form id="search-form" class="search-form">
+               <span class="search-icon">⌕</span>
+
+               <input
+                  type="text"
+                  id="username-input"
+                  placeholder="Enter GitHub username..."
+                  autocomplete="off"
+                  aria-label="GitHub username"
+                  required
+               />
+
+               <button type="submit" id="search-btn">
+                  Search <span>→</span>
+               </button>
+            </form>
+
+            <p class="search-hint">Try searching for a GitHub username</p>
+
+            <p
+               id="status-message"
+               class="status-message"
+               role="status"
+               aria-live="polite"
+            ></p>
+         </section>
+
+         <!-- Profile Section -->
+         <section
+            id="profile-container"
+            class="profile-section"
+            aria-label="GitHub profile"
+            aria-live="polite"
+         >
+            <div class="empty-state">
+               <div class="empty-icon">⌘</div>
+               <h2>Ready to explore?</h2>
+               <p>Search for a GitHub username to see their profile.</p>
+            </div>
+         </section>
+
+         <!-- Repositories Section -->
+         <section
+            id="repositories-section"
+            class="repositories-section"
+            aria-label="Repositories"
+         >
+            <div class="section-heading">
+               <div>
+                  <span class="eyebrow">DEVELOPER PROJECTS</span>
+                  <h2>Repositories</h2>
+               </div>
+
+               <span id="repository-count" class="repo-count"
+                  >0 repositories</span
+               >
+            </div>
+
+            <div id="repository-list" class="repository-grid">
+               <!-- Repository cards will be rendered here using JavaScript -->
+            </div>
+         </section>
+      </main>
+
+      <footer class="footer">
+         <p>
+            Built with <span class="accent">♥</span> using Vanilla JavaScript
+         </p>
+      </footer>
+   </body>
+</html>
