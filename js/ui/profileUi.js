@@ -37,9 +37,18 @@ export function showProfileDetails(data) {
                   <li> <span> Github Link: </span> <a href="${data.html_url}">${data.html_url}</a></li>
                   <li> <span> Account Creation Date: </span> ${data.created_at} </li>
                </ul>
-
             </div>
+         </div>
+      </div>
+   `;
+}
 
+export function profileNotFound() {
+   profile.innerHTML = `
+      <div class="empty-state">
+         <div style="background-color: red" class="empty-icon">×</div>
+            <h2 style="font-size: 50px">404</h2>
+            <p>Profile Not Found</p>
          </div>
       </div>
    `;

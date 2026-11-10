@@ -1,5 +1,6 @@
-import { fetchUser } from "./api/githubApi.js";
-import { showProfileDetails } from "./ui/profileUi.js";
+import { fetchUser, fetchRepos } from "./api/githubApi.js";
+import { showProfileDetails, profileNotFound } from "./ui/profileUi.js";
+import { showRepositories, repositoriesNotFound } from "./ui/repositoryUi.js";
 import { updateMissingState, updateCreatedTime } from "./utils/helpers.js";
 
 const form = document.querySelector("#search-form");
@@ -13,18 +14,22 @@ async function readUserName(e) {
    try {
       const response = await fetchUser(userName);
       const data = await response.json();
+      const response2 = await fetchRepos(userName);
+      const repos = await response2.json();
 
       if (!data || data.status === "404") {
-         alert("Error: This repo not found");
+         profileNotFound();
+         repositoriesNotFound();
+         return;
       }
 
       const newData = updateMissingState(data);
       newData.created_at = updateCreatedTime(data.created_at);
-      showProfileDetails(newData);
 
-      console.log(response);
-      console.log(data);
-      console.log(newData);
+      showProfileDetails(newData);
+      showRepositories(repos);
+
+      console.log(repos);
    } catch (error) {
       console.log(error);
       alert(error);
