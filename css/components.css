@@ -61,12 +61,17 @@
    font-size: 14px;
 }
 
+.profile-info {
+   display: flex;
+   flex-direction: column;
+}
+
 /* Stats */
 
 .profile-stats {
    display: grid;
    grid-template-columns: repeat(3, 1fr);
-   gap: 12px;
+   gap: 20px;
    margin-top: 25px;
 }
 
@@ -84,6 +89,10 @@
 .stat-card p {
    color: var(--muted);
    font-size: 12px;
+}
+
+.other-info li {
+   color: var(--muted);
 }
 
 /* Repository Cards */
@@ -144,6 +153,7 @@
    }
 
    .profile-top {
+      flex-direction: column;
       align-items: flex-start;
       gap: 15px;
    }
